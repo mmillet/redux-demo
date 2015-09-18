@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>redux demo</title>
+  <link href="css/index.less" rel="stylesheet">
+</head>
+<body>
+  <div id="order"></div>
+  <script src="./node_modules/requirejs/require.js"></script>
+  <script>
+    require(["js/order"], function(order) {
+      order.initOrder({
+        items: [
+          {
+            title: "Apple",
+            price: 4.5,
+            limit: 4,
+            cnt: 0,
+            total: 0
+          },
+          {
+            title: "Banana",
+            price: 2,
+            limit: 8,
+            cnt: 1,
+            total: 2
+          },
+          {
+            title: "Peach",
+            price: 5.8,
+            limit: 10,
+            cnt: 6,
+            total: 0
+          }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

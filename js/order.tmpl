@@ -1,0 +1,24 @@
+<section>
+  <ul class="order-list">
+  <%
+    var total = 0;
+    items.map(function(item, index) {
+      total += item.price * item.cnt;
+  %>
+    <li>
+      <h3><%= item.title %></h3>
+      <span>￥<%= item.price.toFixed(2) %></span>
+      <strong> x </strong>
+      <div class="btn-group">
+        <a data-index="<%= index %>" class="decrement" href="javascript:;">-</a><input readonly value="<%= item.cnt %>"/><a data-index="<%= index %>" class="increment" href="javascript:;">+</a>
+      </div>
+    </li>
+  <% }) %>
+  </ul>
+  <p class="order-info" id="total">Total: ￥<%= total.toFixed(2) %></p>
+  <ul class="history">
+    <% history.map(function(item, index) { %>
+      <li><%= item.type %> <%= item.index %></li>
+    <% }) %>
+  </ul>
+</section>
