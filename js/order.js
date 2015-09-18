@@ -2,7 +2,7 @@
  * Created by zhengguo.chen on 2015/9/16.
  */
 import {createStore, combineReducers} from "./node_modules/redux/dist/redux";
-import {addItem, minusItem} from "./action";
+import getAction from "./action";
 import render from "./render";
 import reducer from "./reducer";
 
@@ -21,15 +21,17 @@ export var initOrder = (initialState) => {
   //initial dispatch
   store.dispatch({type: "INITIAL"});
 
+  //actions
+  let action = getAction(store);
+  console.log(action);
+
   //bind events
   document.addEventListener("click", function(e) {
     let target = e.target;
     let className = target.className;
     if(className === "increment" || className === "decrement") {
-      let index = parseInt(target.getAttribute("data-index"));
-      // The only way to mutate the internal state is to dispatch an action.
-      // The actions can be serialized, logged or stored and later replayed.
-      store.dispatch(className === "increment" ? addItem(index) : minusItem(index));
+      let index = parseInt(target.getAttribute("data-index"))
+      className === "increment" ? action.addItem(index) : action.minusItem(index);
     }
   });
 };
