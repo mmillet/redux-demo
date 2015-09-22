@@ -1,7 +1,7 @@
 /**
  * Created by zhengguo.chen on 2015/9/17.
  */
-var increment = (item) => {
+var increment = item => {
   if(item.cnt < item.limit) {
     item.cnt++;
     item.total = item.cnt * item.price;
@@ -9,7 +9,7 @@ var increment = (item) => {
   return item;
 };
 
-var decrement = (item) => {
+var decrement = item => {
   if(item.cnt > 0) {
     item.cnt--;
     item.total = item.cnt * item.price;

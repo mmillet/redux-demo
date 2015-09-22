@@ -7,7 +7,9 @@ fis
   .match('js/*.js', {
     isMod: true,
     parser: fis.plugin('es6-babel',
-      { blacklist: ["strict"] }
+      {
+        blacklist: ["strict"]
+      }
     )
   })
   .match('js/*.tmpl', {
