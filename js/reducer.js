@@ -6,20 +6,19 @@ import {INCREMENT, DECREMENT} from "./actionTypes";
 import {increment, decrement} from "./handle";
 
 let history = (state = [], action = {}) => {
-  state.unshift(action);
-  return state.splice(0, 15);
+  return [action, ...state].splice(0, 15);
 };
 
 let items = (state = [], action = {}) => {
+  var newState = [...state];
   switch (action.type) {
     case INCREMENT:
-      increment(state[action.index]);
-      break;
+      return increment(newState, action.index);
     case DECREMENT:
-      decrement(state[action.index]);
-      break;
+      return decrement(newState, action.index);
+    default:
+      return newState;
   }
-  return state;
 };
 
 
