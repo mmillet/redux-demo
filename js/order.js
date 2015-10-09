@@ -1,7 +1,7 @@
 /**
  * Created by zhengguo.chen on 2015/9/16.
  */
-import {createStore, combineReducers, applyMiddleware} from "./node_modules/redux/dist/redux";
+import {createStore, combineReducers, applyMiddleware} from "../node_modules/redux/dist/redux";
 import getAction from "./action";
 import render from "./render";
 import reducer from "./reducer";
@@ -28,7 +28,7 @@ export var initOrder = (initialState) => {
   });
 
   //initial dispatch
-  store.dispatch({type: "INITIAL", meta: {delay: 1000}});
+  store.dispatch({type: "INITIAL", meta: {delay: 20}});
 
   //actions
   let action = getAction(store);

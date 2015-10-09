@@ -1,7 +1,7 @@
 /**
  * Created by zhengguo.chen on 2015/9/17.
  */
-import {bindActionCreators} from "./node_modules/redux/dist/redux";
+import {bindActionCreators} from "../node_modules/redux/dist/redux";
 import {INCREMENT, DECREMENT} from "./actionTypes";
 
 //普通工厂函数，返回一个对象
