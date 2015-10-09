@@ -4,8 +4,9 @@
 //logger middleware
 var logger = store => next => action => {
   console.log('dispatching', action);
-  return next(action);
+  let n = next(action);
   console.log('next state', store.getState());
+  return n;
 };
 
 //delay middleware
